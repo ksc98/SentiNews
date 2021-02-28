@@ -13,7 +13,7 @@ NLP_KEY = os.getenv('GCP_NLP_API_KEY')
 
 if not NLP_KEY:
     logging.debug("No API key found. Export to GCP_NLP_API_KEY")
-    exit()
+    return {}
 
 
 def gcp_nlp(content):
