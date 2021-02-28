@@ -44,7 +44,7 @@ class TheGuardianSpider(scrapy.Spider):
             content = ' '.join(content)
             logging.debug(green(f'Sending article to GCP NLP...'))
             nlp = gcp_nlp(content)
-            sentiment = dict(nlp['documentSentiment'])
+            sentiment = dict(nlp.get('documentSentiment', {}))
             yield (item := {
                 'provider': self.name,
                 'title': title,
